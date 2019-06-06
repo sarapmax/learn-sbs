@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_billboard"
+            android:icon="@drawable/ic_menu_billboard"
+            android:title="@string/menu_billboard"/>
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_menu_account"
+            android:title="@string/menu_account"/>
+    </group>
+
+    <item android:title="Courses">
+        <menu>
+            <item
+                android:id="@+id/nav_web_design_course"
+                android:icon="@drawable/ic_book_black_24dp"
+                android:title="Web Design"/>
+            <item
+                android:id="@+id/nav_data_structure_course"
+                android:icon="@drawable/ic_book_black_24dp"
+                android:title="Data Structure"/>
+        </menu>
+    </item>
+
+</menu>
