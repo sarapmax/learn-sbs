@@ -16,15 +16,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
 
+    private FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -38,8 +44,21 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
 
+        mAuth = FirebaseAuth.getInstance();
+
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LoginFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new BillboardFragment()).commit();
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if (currentUser == null) {
+            sendToLoginActivity();
         }
     }
 
@@ -68,11 +87,26 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_logout) {
+            logOut();
+
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void logOut() {
+        mAuth.signOut();
+
+        sendToLoginActivity();
+    }
+
+    private void sendToLoginActivity() {
+        Intent loginIntent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(loginIntent);
+
+        finish();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
