@@ -77,6 +77,20 @@ public class CourseFragment extends Fragment {
             }
         });
 
+        CardView cardQuizResult = rootView.findViewById(R.id.card_quiz_result);
+
+        cardQuizResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QuizResultFragment nextFrag= new QuizResultFragment();
+
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, nextFrag, null)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
         return rootView;
     }
 }
