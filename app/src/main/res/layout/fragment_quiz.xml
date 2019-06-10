@@ -1,106 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--<android.support.v7.widget.CardView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginTop="20dp"-->
-        <!--android:layout_marginLeft="20dp"-->
-        <!--android:layout_marginRight="20dp"-->
-        <!--app:cardBackgroundColor="#ffa726">-->
-
-        <!--<TextView-->
-            <!--android:drawableLeft="@drawable/ic_priority_high_black_24dp"-->
-            <!--android:drawableTint="#fff"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="There is no quiz at the momoent"-->
-            <!--android:textSize="18dp"-->
-            <!--android:textColor="#fff"-->
-            <!--android:textStyle="bold"-->
-            <!--android:padding="10dp"/>-->
-
-    <!--</android.support.v7.widget.CardView>-->
-
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ProgressBar
+            android:id="@+id/quizProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:indeterminate="true"
+            android:visibility="invisible"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="> Which attribute specifies a unique alphanumeric identifier to be associated with an element?"
-                android:textSize="18dp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="class"/>
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="id"/>
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="article"/>
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="html"/>
-
-            <TextView
-                android:gravity="center_vertical"
-                android:drawableLeft="@drawable/ic_access_time_black_24dp"
-                android:drawableTint="@color/colorAccent"
-                android:layout_marginTop="10dp"
+            <android.support.v7.widget.CardView
+                android:id="@+id/quizEmpty"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=" 2 Minutes left, before time's up"
-                android:textStyle="bold"
-                android:textColor="@color/colorAccent"/>
+                app:cardBackgroundColor="@color/colorWarning"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:indeterminate="false"
-                android:max="100"
-                android:minHeight="20dp"
-                android:layout_marginTop="2dp"
-                android:progress="80" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
-            <Button
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_error_outline_black_24dp"
+                        android:text=" There is no quiz at the moment"
+                        android:gravity="center_vertical"
+                        android:textColor="#ffffff"
+                        android:textSize="14dp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/question_list_recycle_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
-                android:text="Submit"
-                android:textColor="#ffff"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"/>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-</LinearLayout>
+                android:layout_height="wrap_content">
+
+            </android.support.v7.widget.RecyclerView>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>
