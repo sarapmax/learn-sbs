@@ -8,10 +8,6 @@
             android:id="@+id/nav_billboard"
             android:icon="@drawable/ic_menu_billboard"
             android:title="@string/menu_billboard"/>
-        <item
-            android:id="@+id/nav_account"
-            android:icon="@drawable/ic_menu_account"
-            android:title="@string/menu_account"/>
     </group>
 
     <item android:title="Courses">

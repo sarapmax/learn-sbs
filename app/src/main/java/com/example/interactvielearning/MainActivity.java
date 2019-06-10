@@ -117,9 +117,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_billboard) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new BillboardFragment()).commit();
-        } else if (id == R.id.nav_account) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AccountFragement()).commit();
-        } else if (id == R.id.nav_web_design_course) {
+        }else if (id == R.id.nav_web_design_course) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CourseFragment()).commit();
         }
 
