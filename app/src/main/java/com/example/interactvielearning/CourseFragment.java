@@ -9,8 +9,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
-public class CourseFragment extends Fragment{
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+public class CourseFragment extends Fragment {
+
+    ProgressBar courseProgressBar;
 
     @Nullable
     @Override
@@ -18,6 +28,28 @@ public class CourseFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_course, container, false);
 
         CardView cardView = rootView.findViewById(R.id.card_learn);
+        final TextView lessonNumber = rootView.findViewById(R.id.lesson_number);
+
+        courseProgressBar = rootView.findViewById(R.id.courseProgressBar);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("courseLessons").child("webDesign");
+
+        courseProgressBar.setVisibility(View.VISIBLE);
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                lessonNumber.setText(Long.toString(dataSnapshot.getChildrenCount()) + " Lessons");
+
+                courseProgressBar.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
