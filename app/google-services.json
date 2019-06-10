@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "723056968371-b4q93mkg80ipobde4ai6mui7f4jliup1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.interactvielearning",
+            "certificate_hash": "ea188303d5baa47915bd089ca57054932d1ff4a3"
+          }
+        },
+        {
           "client_id": "723056968371-eum7mlk58gsic4nel7qtj77j4iqv18rf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

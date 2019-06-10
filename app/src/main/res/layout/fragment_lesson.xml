@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent" android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,32 +17,60 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp">
 
+            <org.sufficientlysecure.htmltextview.HtmlTextView
+                android:layout_margin="20dp"
+                android:id="@+id/html_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="@android:style/TextAppearance.Medium" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp">
+
+            <org.sufficientlysecure.htmltextview.HtmlTextView
+                android:layout_margin="20dp"
+                android:id="@+id/html_instruction"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textAppearance="@android:style/TextAppearance.Medium" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            app:cardBackgroundColor="@color/codeBackground">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:ignore="WebViewLayout"
+                android:padding="20dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="Stie Structor"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:text="Anatomy of an HTML Element"/>
-
-                <org.sufficientlysecure.htmltextview.HtmlTextView
-                    android:layout_marginTop="10dp"
-                    android:id="@+id/html_text"
+                <EditText
+                    android:gravity="top|left"
+                    android:background="@color/codeBackground"
+                    android:inputType="textMultiLine"
+                    android:id="@+id/html_code"
+                    android:textColor="#ffffff"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textAppearance="@android:style/TextAppearance.Small" />
+                    android:layout_height="400dp" />
+
+                <!--<WebView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:id="@+id/web_view">-->
+                <!--</WebView>-->
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -55,24 +85,50 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                tools:ignore="WebViewLayout">
+                android:padding="20dp">
 
-                <WebView
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/web_view">
-                </WebView>
+                    android:text="Output"
+                    android:textSize="20dp"/>
+
+                <org.sufficientlysecure.htmltextview.HtmlTextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/html_output"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAppearance="@android:style/TextAppearance.Medium" />
+
             </LinearLayout>
+
         </android.support.v7.widget.CardView>
 
-        <Button
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:text="Submit"
-            android:textColor="#ffff"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"/>
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+            <Button
+                android:id="@+id/run_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:text="Run"
+                android:textColor="#ffff"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+
+            <Button
+                android:visibility="invisible"
+                android:id="@+id/submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:text="Submit"
+                android:textColor="#ffff"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+        </RelativeLayout>
     </LinearLayout>
 </ScrollView>
