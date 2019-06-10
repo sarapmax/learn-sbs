@@ -4,81 +4,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
+    <ProgressBar
+        android:id="@+id/billboardProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:indeterminate="true"
+        android:visibility="invisible"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Proposal of final project"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Please send the proposal of final project by group to Prof.Huang before 2018/4/9. The proposal ppt is limited in 5 pages including your idea, motivation and problem definitions."
-                android:textSize="16dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
-                android:drawableLeft="@drawable/ic_icon_calendar_date"
-                android:drawablePadding="6dp"
-                android:drawableTint="@*android:color/secondary_text_material_light"
-                android:gravity="center"
-                android:text="June 2, 2019"/>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="10dp"
+        android:id="@+id/billboard_recycle_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+    </android.support.v7.widget.RecyclerView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Paper Presentation"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_marginTop="4dp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="Please send the proposal of final project by group to Prof.Huang before 2018/4/9. The proposal ppt is limited in 5 pages including your idea, motivation and problem definitions."
-                android:textSize="16dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginTop="8dp"
-                android:drawableLeft="@drawable/ic_icon_calendar_date"
-                android:drawablePadding="6dp"
-                android:drawableTint="@*android:color/secondary_text_material_light"
-                android:gravity="center"
-                android:text="June 10, 2019"/>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
 </LinearLayout>
