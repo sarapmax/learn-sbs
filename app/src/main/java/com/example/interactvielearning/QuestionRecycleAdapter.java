@@ -89,6 +89,8 @@ public class QuestionRecycleAdapter extends RecyclerView.Adapter<QuestionRecycle
                         currentQuestion.child("correct").setValue(true);
                     }
 
+                    Toast.makeText(mContext, "You have submitted the quiz already!", Toast.LENGTH_SHORT).show();
+
                     timer.cancel();
                     currentQuestion.child("activated").setValue(false);
                     currentQuestion.child("isDone").setValue(true);
